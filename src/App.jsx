@@ -4,60 +4,30 @@ import * as Pages from './pages';
 const router = createBrowserRouter([
   {
     path:'/',
-    element:<Pages.HomeLayout />
-  },
-  {
-    path:'/addEvent',
-    element:<Pages.AddEvent />
-  },
-  {
-    path: '/admin',
-    element: <Pages.Admin />
-  },
-  {
-    path: '/allEvents',
-    element: <Pages.AllEvents />
-  },
-  {
-    path: '/dashboardLayout',
-    element: <Pages.DashboardLayout />
-  },
-  {
-    path: '/delete',
-    element: <Pages.DeleteEvent />
-  },
-  {
-    path: '/error',
-    element: <Pages.Error />
-  },
-  {
-    path: '/edit',
-    element: <Pages.EditEvent />
-  },
-  {
-    path: '/landing',
-    element: <Pages.Landing />
-  },
-  {
-    path:'/login',
-    element:<Pages.Login />
-  },
-  {
-    path: '/profile',
-    element: <Pages.Profile />
-  },
-  {
-    path:'/register',
-    element:<Pages.Register />
-  },
-  {
-    path:'/stats',
-    element:<Pages.Stats />
-  },
+    element:<Pages.HomeLayout />,
+    errorElement: <Pages.Error />,  
+    children: [
+      {
+        index: true,
+        element: <Pages.Landing />
+      },
+      {
+        path: 'dashboard',
+        element: <Pages.DashboardLayout />
+      },
+      {
+        path:'login',
+        element:<Pages.Login />
+      },
+      {
+        path:'register',
+        element:<Pages.Register />
+      }
+    ]
+  }
 ])
 const App = () => {
   return <RouterProvider router={router} />;
-  
 }
 
 export default App;
