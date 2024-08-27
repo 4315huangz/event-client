@@ -12,16 +12,38 @@ const router = createBrowserRouter([
         element: <Pages.Landing />
       },
       {
-        path: 'dashboard',
-        element: <Pages.DashboardLayout />
-      },
-      {
         path:'login',
         element:<Pages.Login />
       },
       {
         path:'register',
         element:<Pages.Register />
+      },
+      {
+        path: 'dashboard',
+        element: <Pages.DashboardLayout />,
+        children: [
+          {
+            index: true,
+            element:<Pages.AddEvent />
+          },
+          {
+            path: 'all-events',
+            element: <Pages.AllEvents />
+          },
+          {
+            path: 'profile',
+            element: <Pages.Profile />
+          },
+          {
+            path: 'stats',
+            element: <Pages.Stats />
+          },
+          {
+            path:'admin',
+            element:<Pages.Admin />
+          }
+        ]
       }
     ]
   }
