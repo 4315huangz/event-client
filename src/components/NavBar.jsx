@@ -20,5 +20,4 @@ const NavBar= () => {
     </Wrapper>
   )
 };
-
 export default NavBar

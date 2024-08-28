@@ -5,7 +5,6 @@ import { FaTimes } from "react-icons/fa";
 
 const SmallSidebar = () => {
   const { showSidebar, toggleSidebar } = useDashboardContext();
-
   return (
     <Wrapper>
       <div
@@ -26,5 +25,4 @@ const SmallSidebar = () => {
     </Wrapper>
   );
 };
-
 export default SmallSidebar;
